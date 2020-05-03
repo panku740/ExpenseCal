@@ -14,7 +14,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 
-export default class NewPayment extends Component {
+export default class History extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ export default class NewPayment extends Component {
     };
 
   }
-  async componentWillMount() {
+  async UNSAFE_componentWillMount() {
     await Expo.Font.loadAsync({
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
@@ -39,14 +39,19 @@ export default class NewPayment extends Component {
     return (
 
       <Container style={{ backgroundColor: '#e6e6e6' }}>
-        <Header style={{ backgroundColor: 'white' }} >
-          <Left style={{ marginLeft: -170 }}>
-            <Button transparent>
-            <Icon name="angle-left" size={25} color="black"
+       <Header style={{ backgroundColor: 'white' }} >
+          <Left style={{ marginLeft: '-50%' }}>
+            <Image source={{
+              uri: 'https://lh3.googleusercontent.com/11JlG_Nj0Nv8g4CdLio_fDxdJj6yFR1rTycAT5OgWwKzqPb5rbNtSpOu4zf-Z1R2W0s'
+            }}
+              style={{
+                alignSelf: 'center',
+                height: '100%',
+                width: '100%', flex: 1, margin: 10
+              }}
+              resizeMode={'contain'} />
 
-                      />
-                     
-            </Button>
+
           </Left>
 
           <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>History</Title>
@@ -265,34 +270,7 @@ export default class NewPayment extends Component {
             </Content>
           </TouchableOpacity>
         </ScrollView>
-        <Footer style={{ backgroundColor: '#e6e6e6' }}>
-          <FooterTab style={{ backgroundColor: 'white', marginTop: 1 }}>
-            <Button
-             onPress={() =>  navigation.navigate('New')}
-            >
-
-              <Icon name='plus' size={20} color={'grey'}/>
-              <Text style={{color:'grey'}}>New</Text>
-            </Button>
-            <Button active style={{ backgroundColor: '#e6e6e6' }}>
-
-              <Icon name='history' size={20} color={'grey'}/>
-              <Text style={{color:'grey'}}>History</Text>
-            </Button>
-            <Button >
-
-              <Icon name='piggy-bank'  size={20} color={'grey'} />
-              <Text style={{color:'grey'}}>savings</Text>
-            </Button>
-            <Button
-            >
-
-              <Icon name='cog' size={20} color={'grey'}/>
-              <Text style={{color:'grey'}}>Settings</Text>
-              <New/>
-            </Button>
-          </FooterTab>
-        </Footer>
+       
       </Container>
 
     );

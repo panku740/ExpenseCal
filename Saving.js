@@ -20,7 +20,7 @@ import History from './History';
 const Stack = createStackNavigator();
 
 
-export default class NewPay extends React.Component {
+export default class Saving extends React.Component {
   constructor(props) {
     
     super(props);
@@ -73,7 +73,7 @@ export default class NewPay extends React.Component {
     if(this.state.amount==0 ){
       Alert.alert(
         //title
-        'Oops',
+        'Wait Wait',
         //body
         'Amount is required!! ',
         [
@@ -86,18 +86,6 @@ export default class NewPay extends React.Component {
       
     }
     else{
-      Alert.alert(
-        //title
-        'Great',
-        //body
-        'Your Expense is added ',
-        [
-        
-          {text: 'ok', style: 'default'},
-        ],
-        { cancelable: false }
-        //clicking out side of alert will not cancel
-      );
     console.log(JSON.stringify(this.state));
     
     }
@@ -108,7 +96,7 @@ export default class NewPay extends React.Component {
     if(this.state.amountsave==0 ){
       Alert.alert(
         //title
-        'Oops ',
+        'Wait Wait',
         //body
         'Saving Amount is required!! ',
         [
@@ -121,18 +109,6 @@ export default class NewPay extends React.Component {
       
     }
     else{
-      Alert.alert(
-        //title
-        'Great',
-        //body
-        'Your Savings are added ',
-        [
-        
-          {text: 'ok', style: 'default'},
-        ],
-        { cancelable: false }
-        //clicking out side of alert will not cancel
-      );
     console.log(JSON.stringify(this.state));
     this.myTextInput.current.value='';
     }
@@ -165,8 +141,31 @@ export default class NewPay extends React.Component {
       return (<AppLoading />);
     }
     //const { navigate } = this.props.navigation;
-    return (
+    return (<Container>
+        <Header style={{ backgroundColor: 'white' }} >
+          <Left style={{ marginLeft: '-50%' }}>
+            <Image source={{
+              uri: 'https://lh3.googleusercontent.com/11JlG_Nj0Nv8g4CdLio_fDxdJj6yFR1rTycAT5OgWwKzqPb5rbNtSpOu4zf-Z1R2W0s'
+            }}
+              style={{
+                alignSelf: 'center',
+                height: '100%',
+                width: '100%', flex: 1, margin: 10
+              }}
+              resizeMode={'contain'} />
 
+
+          </Left>
+
+          <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>Savings</Title>
+
+          
+        </Header>
+        <View style={{alignSelf:'center',marginTop:'50%'}}>
+            <Text>Coming Soon, Under development</Text>
+        </View>
+        </Container>);}}
+/*
       <Container style={{ backgroundColor: '#e6e6e6' }}>
         <Header style={{ backgroundColor: 'white' }} >
           <Left style={{ marginLeft: '-50%' }}>
@@ -183,9 +182,9 @@ export default class NewPay extends React.Component {
 
           </Left>
 
-          <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>ExpensesCal</Title>
+          <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>Savings</Title>
 
-
+          
         </Header>
         <ScrollView>
 
@@ -427,7 +426,7 @@ export default class NewPay extends React.Component {
 
 
                         <Icon name="coins" color='#ffcc00' />
-                        <Label style={{ marginLeft: 10 }}> {this.state.amountsave}</Label>
+                        <Text> {this.state.amountsave}</Text>
 
                       </Left>
 
@@ -468,3 +467,4 @@ export default class NewPay extends React.Component {
     );
   }
 }
+*/
