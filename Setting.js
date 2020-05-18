@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Alert, View, TouchableOpacity, Text } from 'react-native';
+import { Image, StyleSheet, Alert, View, TouchableOpacity, Text,StatusBar } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { Container, Header, Root, Right, Title, Item, TextInput, Input, Picker, Label, Form, Content, Card, CardItem, Thumbnail, Button, Footer, FooterTab, Left, Body } from 'native-base';
 //import { Icon } from "react-native-elements";
@@ -13,7 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import History from './History';
 //import { text } from 'body-parser';
 //import unknown from 'react-native-web/dist/cjs/exports/Text';
-
+import LoginIn from './Login';
 
 
 
@@ -119,20 +119,9 @@ export default class Setting extends React.Component {
         return (
 
             <Container style={{ backgroundColor: '#e6e6e6' }}>
-                <Header style={{ backgroundColor: 'white' }} >
-                    <Left style={{ marginLeft: '-50%' }}>
-                        <Image source={{
-                            uri: 'https://lh3.googleusercontent.com/11JlG_Nj0Nv8g4CdLio_fDxdJj6yFR1rTycAT5OgWwKzqPb5rbNtSpOu4zf-Z1R2W0s'
-                        }}
-                            style={{
-                                alignSelf: 'center',
-                                height: '100%',
-                                width: '100%', flex: 1, margin: 10
-                            }}
-                            resizeMode={'contain'} />
+                <Header style={{ backgroundColor: 'white',borderBottomWidth:1,borderBottomColor:'#e6e6e6' }} >
+                <StatusBar barStyle="dark-content" hidden={false} backgroundColor="white" translucent={true} />
 
-
-                    </Left>
 
                     <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>Settings</Title>
 
@@ -190,7 +179,7 @@ export default class Setting extends React.Component {
                         <TouchableOpacity  >
                             <Content >
                                 <Card style={{ borderBottomRightRadius: 50,borderTopRightRadius:50 }}>
-                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderRadius: 50 }}>
+                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80,  borderBottomRightRadius: 50,borderTopRightRadius:50}}>
                                         <Icon active name="file-export" size={20} color={'#b30000'}/>
                                         <Text>{"    Export Data"}</Text>
                                         <Right marginRight={'-10%'}>
@@ -207,7 +196,7 @@ export default class Setting extends React.Component {
                         <TouchableOpacity >
                             <Content >
                                 <Card style={{ borderTopLeftRadius: 50,borderBottomLeftRadius:50 }}>
-                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderRadius: 50 }}>
+                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderTopLeftRadius: 50,borderBottomLeftRadius:50 }}>
                                         <Icon active name="bell" size={20} color={'#ffcc66'} />
                                         <Text>{"    Notification"}</Text>
                                         <Right marginRight={'-10%'}>
@@ -220,7 +209,7 @@ export default class Setting extends React.Component {
                         <TouchableOpacity  >
                             <Content >
                                 <Card style={{ borderBottomRightRadius: 50,borderTopRightRadius:50 }}>
-                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderRadius: 50 }}>
+                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderBottomRightRadius: 50,borderTopRightRadius:50 }}>
                                         <Icon active name="cubes" size={20} />
                                         <Text>{"    Themes (Beta)"}</Text>
                                         <Right marginRight={'-10%'}>
@@ -236,7 +225,7 @@ export default class Setting extends React.Component {
                         <TouchableOpacity >
                             <Content >
                                 <Card style={{ borderTopLeftRadius: 50,borderBottomLeftRadius:50 }}>
-                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderRadius: 50 }}>
+                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderTopLeftRadius: 50,borderBottomLeftRadius:50  }}>
                                         <Icon active name="phone" size={20} color={'green'} />
                                         <Text>{"    Support/Contact"}</Text>
                                         <Right marginRight={'-10%'}>
@@ -249,7 +238,7 @@ export default class Setting extends React.Component {
                         <TouchableOpacity  >
                             <Content >
                                 <Card style={{ borderBottomRightRadius: 50,borderTopRightRadius:50 }}>
-                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80, borderRadius: 50 }}>
+                                    <CardItem style={{ minWidth: '49.2%', minHeight: 80,borderBottomRightRadius: 50,borderTopRightRadius:50}}>
                                         <Icon active name="question-circle" size={20} color={'blue'}/>
                                         <Text>{"    App info"}</Text>
                                         <Right marginRight={'-10%'}>
@@ -260,7 +249,17 @@ export default class Setting extends React.Component {
                             </Content>
                         </TouchableOpacity>
                     </View>
-
+                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('LoginIn')}>
+                            <Content  >
+                                <Card style={{ borderRadius: 50, width:'60%',alignSelf:'center'}}>
+                                    <CardItem style={{ minHeight: 60,borderRadius:50,alignSelf:'center'}}>
+                                        <Icon active name="reply" size={20} color={'grey'}/>
+                                        <Text style={{fontSize:15,fontWeight:'bold'}}>{"    Logout"}</Text>
+                                        
+                                    </CardItem>
+                                </Card>
+                            </Content>
+                        </TouchableOpacity>
                 </ScrollView>
 
             </Container>

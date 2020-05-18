@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { Container, Header, Root, Title, Content, Card, CardItem, Thumbnail, Text, Button, Footer, FooterTab, Left, Body } from 'native-base';
+import { Image, StyleSheet, View, TouchableOpacity,StatusBar } from 'react-native';
+import { Container, Header, Root, Title, Content, Card,Right, CardItem, Thumbnail, Text, Button, Footer, FooterTab, Left, Body } from 'native-base';
 //import { Icon } from "react-native-elements";
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Setting from './History';
+
 import { StackNavigator } from 'react-navigation';
-import New from './New';
+
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 
-export default class History extends Component {
+ class Historyy extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,53 +32,48 @@ export default class History extends Component {
     });
     this.setState({ loading: false });
   }
+  
   render(){
     if (this.state.loading) {
       return (<AppLoading />);
     }
+    
     return (
 
-      <Container style={{ backgroundColor: '#e6e6e6' }}>
-       <Header style={{ backgroundColor: 'white' }} >
-          <Left style={{ marginLeft: '-50%' }}>
-            <Image source={{
-              uri: 'https://lh3.googleusercontent.com/11JlG_Nj0Nv8g4CdLio_fDxdJj6yFR1rTycAT5OgWwKzqPb5rbNtSpOu4zf-Z1R2W0s'
-            }}
-              style={{
-                alignSelf: 'center',
-                height: '100%',
-                width: '100%', flex: 1, margin: 10
-              }}
-              resizeMode={'contain'} />
+      <Container style={{ backgroundColor: '#f2f2f2' }}>
+         
+       <Header style={{ backgroundColor: 'white',borderBottomWidth:1,borderBottomColor:'#e6e6e6',marginTop:5 }} >
+         
+           
+       <StatusBar barStyle="dark-content" hidden={false} backgroundColor="white" translucent={true} />
 
+          
 
-          </Left>
-
-          <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>History</Title>
-
+          <Title style={{ alignSelf:'center', color: 'black', }}>History</Title>
+          
 
         </Header>
         <ScrollView>
-          <ScrollView horizontal={true}><TouchableOpacity  >
-            <Content style={{ marginLeft: 3 }}>
-              <Card style={{ flex: 1 }}>
-                <CardItem style={{ width: 250 }}>
+        <View style={{ flexDirection: 'row', flex: 1 }}>
+          <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Food')}  >
+            <Content style={{marginLeft:5}}>
+              <Card style={{borderRadius:15}} >
+                <CardItem style={{ minWidth: '48.5%',borderRadius:15,paddingLeft:-20 }}>
                   <Left>
                   <Image source={{
                       uri: 'https://i.pinimg.com/originals/ea/41/94/ea41941ee33de94f35ca1a14d37df120.jpg'
                     }}
                       style={{
-                        marginLeft:-40,
-                        marginRight:-40,
-                        height: 50,
-                        width: 50, flex: 1
+                        marginRight:-20,
+                        height: 40,
+                        width: 40, flex: 1
                       }}
                       resizeMode={'contain'} />
                     <Body>
                    
-                      <Text>Food Purchase</Text>
+                      <Text>Food </Text>
                       
-                      <Text note>Last April 15, 2016</Text>
+                      <Text note>Last May 15, 2016</Text>
                     </Body>
                   </Left>
                 </CardItem>
@@ -86,14 +81,14 @@ export default class History extends Component {
 
 
               </Card>
-            </Content>
+            </Content >
           </TouchableOpacity>
-            <TouchableOpacity  >
-              <Content style={{ marginLeft: 3}}>
-                <Card style={{ flex: 1 }}>
-                  <CardItem
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Fashion')} >
+              <Content style={{marginRight:5}} >
+                <Card style={{ flex: 1 ,borderRadius:15}}>
+                  <CardItem  
                     style={{
-                      padding: -10
+minWidth:'48.5%',borderRadius:15,paddingLeft:-10
                     }}>
                     <Left>
                     <Image source={{
@@ -101,12 +96,12 @@ export default class History extends Component {
                     }}
                       style={{
                         marginLeft:0,
-                        height: 50,
-                        width: 50, flex: 1
+                        height: 40,
+                        width: 40, flex: 1
                       }}
                       resizeMode={'contain'} />
                       <Body>
-                        <Text>Fastion</Text>
+                        <Text>Fashion</Text>
                         <Text note>Last April 15, 2016</Text>
                       </Body>
                     </Left>
@@ -116,12 +111,14 @@ export default class History extends Component {
                 </Card>
               </Content>
             </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: 'row', flex: 1 }}>
             <TouchableOpacity  >
-              <Content style={{ marginLeft: 3, marginRight: 3 }}>
-                <Card style={{ flex: 1 }}>
+              <Content style={{ marginLeft:5}}>
+                <Card style={{ flex: 1 ,borderRadius:15}}>
                   <CardItem
                     style={{
-                      padding: -10
+                      minWidth:'48.5%',borderRadius:15,paddingLeft:-10
                     }}>
                     <Left>
                     <Image source={{
@@ -146,16 +143,46 @@ export default class History extends Component {
                 </Card>
               </Content>
             </TouchableOpacity>
-          </ScrollView>
-          <TouchableOpacity  >
-            <Content style={{ marginLeft: 3, marginRight: 3 }}>
-              <Card style={{ flex: 1 }}>
+            <TouchableOpacity  >
+              <Content style={{marginRight:5}}>
+                <Card style={{ flex: 1 ,borderRadius:15}}>
+                  <CardItem
+                    style={{
+                      minWidth:'48.5%',borderRadius:15,paddingLeft:-10
+                    }}>
+                    <Left>
+                    <Image source={{
+                      uri: 'https://clipartstation.com/wp-content/uploads/2018/09/find-clipart-1.jpg'
+                    }}
+                      style={{
+                        marginLeft:0,
+                        height: 50,
+                        width: 50, flex: 1
+                      }}
+                      resizeMode={'contain'} />
+
+                     
+                      <Body>
+                        <Text>Others</Text>
+                        <Text note>Last April 15, 2016</Text>
+                      </Body>
+                    </Left>
+                  </CardItem>
+
+
+                </Card>
+              </Content>
+            </TouchableOpacity>
+          </View>
+          
+            <Content style={{ marginRight:5,marginLeft:5 }}>
+              <Card style={{ flex: 1 ,borderRadius:15}}>
                 <CardItem
                   style={{
-                    padding: -10
+                    padding: -10,borderRadius:15
                   }}>
                   <Left>
-                    <Icon name="credit-card" size={30} color=""
+                    <Icon name="credit-card" size={30} 
 
                     />
                     <Body>
@@ -177,25 +204,29 @@ export default class History extends Component {
                       resizeMode={'contain'} />
 
                   </Body>
-                </CardItem>
-                <CardItem>
+                </CardItem><TouchableOpacity  >
+                <CardItem style={{borderRadius:15,borderTopColor:'#f2f2f2',borderTopWidth:2}}>
                   <Left>
                     <Button transparent textStyle={{ color: '#87838B' }}>
 
                       <Icon name="coins" color='#ffcc00' />
                       <Text>total: 1100</Text>
+                      
                     </Button>
                   </Left>
-                </CardItem>
+               
+                                            <Icon name="chevron-right" color='black'  />
+                                        
+                </CardItem></TouchableOpacity>
               </Card>
             </Content>
-          </TouchableOpacity>
-          <TouchableOpacity  >
-            <Content style={{ marginLeft: 3, marginRight: 3 }}>
-              <Card style={{ flex: 1 }}>
-                <CardItem>
+          
+         
+            <Content style={{marginLeft:5,marginRight:5 }}>
+              <Card style={{ flex: 1,borderRadius:15 }}>
+                <CardItem style={{borderRadius:15}}>
                   <Left>
-                    <Icon name="money-check-alt" size={30} color=""
+                    <Icon name="money-check-alt" size={30} 
                     />
                     <Body>
                       <Text>CASH Payments</Text>
@@ -216,8 +247,9 @@ export default class History extends Component {
                       resizeMode={'contain'} />
 
                   </Body>
-                </CardItem>
-                <CardItem>
+                </CardItem> 
+                <TouchableOpacity>
+                <CardItem style={{borderRadius:15,borderTopColor:'#f2f2f2',borderTopWidth:2}}>
                   <Left>
                     <Button transparent textStyle={{ color: '#87838B' }}>
 
@@ -225,17 +257,19 @@ export default class History extends Component {
                       <Text>total: 500</Text>
                     </Button>
                   </Left>
+                  <Icon name="chevron-right" color='black'  />
                 </CardItem>
+                </TouchableOpacity>
               </Card>
             </Content>
-          </TouchableOpacity>
+          
 
-          <TouchableOpacity>
-            <Content style={{ marginLeft: 3, marginRight: 3 }}>
-              <Card style={{ flex: 1 }}>
-                <CardItem>
+          
+            <Content style={{ marginLeft: 5, marginRight: 5 }}>
+              <Card style={{ flex: 1 ,borderRadius:15}}>
+                <CardItem style={{borderRadius:15}}>
                   <Left>
-                    <Icon name="mobile-alt" size={30} color=""
+                    <Icon name="mobile-alt" size={30} 
                     />
                     <Body>
                       <Text>ONLINE Payments</Text>
@@ -257,7 +291,8 @@ export default class History extends Component {
 
                   </Body>
                 </CardItem>
-                <CardItem>
+                <TouchableOpacity>
+                <CardItem style={{borderRadius:15,borderTopColor:'#f2f2f2',borderTopWidth:2}}>
                   <Left>
                     <Button transparent textStyle={{ color: '#87838B' }}>
 
@@ -265,10 +300,12 @@ export default class History extends Component {
                       <Text>total: 2500</Text>
                     </Button>
                   </Left>
+                  <Icon name="chevron-right" color='black'  />
                 </CardItem>
-              </Card>
+                </TouchableOpacity>
+                </Card>
             </Content>
-          </TouchableOpacity>
+          
         </ScrollView>
        
       </Container>
@@ -277,3 +314,44 @@ export default class History extends Component {
 
   }
 }
+function Food(){
+  
+    return(<Container style={{ backgroundColor: '#e6e6e6' }}>
+      
+    </Container>);
+  
+}
+function Fashion(){
+ 
+    return(<Container style={{ backgroundColor: '#e6e6e6' }}>
+     </Container>);
+  
+   
+    
+  
+}
+function History({navigation}) {
+  
+ 
+  return (
+     
+          <Stack.Navigator
+         
+              screenOptions={{
+                  
+              }}>
+              <Stack.Screen options={{headerShown: false}} tabBarVisible={false} name="History" component={Historyy} />
+              <Stack.Screen options={{title:'Food Expenses', tabBarVisible: false}} name="Food" component={Food} />
+              <Stack.Screen options={{title:'Fashion Expenses'}} name="Fashion" component={Fashion} />
+
+          </Stack.Navigator>
+
+      
+
+
+
+  );
+}
+
+
+export default History;

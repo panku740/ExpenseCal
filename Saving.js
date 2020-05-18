@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet,Alert, View, TouchableOpacity, Text } from 'react-native';
+import { Image, StyleSheet,Alert, View, TouchableOpacity, Text,StatusBar } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { Container, Header, Root, Title, Item, TextInput, Input, Picker, Label, Form, Content, Card, CardItem, Thumbnail, Button, Footer, FooterTab, Left, Body } from 'native-base';
 //import { Icon } from "react-native-elements";
@@ -142,22 +142,12 @@ export default class Saving extends React.Component {
     }
     //const { navigate } = this.props.navigation;
     return (<Container>
-        <Header style={{ backgroundColor: 'white' }} >
-          <Left style={{ marginLeft: '-50%' }}>
-            <Image source={{
-              uri: 'https://lh3.googleusercontent.com/11JlG_Nj0Nv8g4CdLio_fDxdJj6yFR1rTycAT5OgWwKzqPb5rbNtSpOu4zf-Z1R2W0s'
-            }}
-              style={{
-                alignSelf: 'center',
-                height: '100%',
-                width: '100%', flex: 1, margin: 10
-              }}
-              resizeMode={'contain'} />
+         
+        <Header style={{ backgroundColor: 'white', borderBottomWidth:1,borderBottomColor:'#e6e6e6'  }} >
+        <StatusBar barStyle="dark-content" hidden={false} backgroundColor="white" translucent={true} />
 
 
-          </Left>
-
-          <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>Savings</Title>
+          <Title style={{ alignSelf: 'center', color: 'black'}}>Savings</Title>
 
           
         </Header>

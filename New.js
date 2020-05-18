@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet,Alert, View, TouchableOpacity, Text } from 'react-native';
+import { Image, StyleSheet,Alert, View, TouchableOpacity, Text,StatusBar } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { Container, Header, Root, Title, Item, TextInput, Input, Picker, Label, Form, Content, Card, CardItem, Thumbnail, Button, Footer, FooterTab, Left, Body } from 'native-base';
 //import { Icon } from "react-native-elements";
@@ -10,7 +10,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { StackNavigator } from 'react-navigation';
 import { createStackNavigator } from '@react-navigation/stack';
-import History from './History';
+import LoginIn from './Login';
+
 //import { text } from 'body-parser';
 //import unknown from 'react-native-web/dist/cjs/exports/Text';
 
@@ -167,32 +168,32 @@ export default class NewPay extends React.Component {
     //const { navigate } = this.props.navigation;
     return (
 
-      <Container style={{ backgroundColor: '#e6e6e6' }}>
-        <Header style={{ backgroundColor: 'white' }} >
+      <Container style={{ backgroundColor: '#f2f2f2' }}>
+        <Header style={{ backgroundColor: 'white' ,borderBottomWidth:1,borderBottomColor:'#e6e6e6',marginTop:15}} >
+        <StatusBar barStyle="dark-content" hidden={false} backgroundColor="white" translucent={true} />
+
           <Left style={{ marginLeft: '-50%' }}>
-            <Image source={{
-              uri: 'https://lh3.googleusercontent.com/11JlG_Nj0Nv8g4CdLio_fDxdJj6yFR1rTycAT5OgWwKzqPb5rbNtSpOu4zf-Z1R2W0s'
-            }}
+            <Image source={require('./assets/icon.png')}
               style={{
                 alignSelf: 'center',
                 height: '100%',
-                width: '100%', flex: 1, margin: 10
+                width: '100%', flex: 1, margin: 10,borderRadius:50
               }}
               resizeMode={'contain'} />
 
 
           </Left>
 
-          <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>ExpensesCal</Title>
+          <Title style={{ alignSelf: 'center', color: 'black', position: 'absolute' }}>BuZZuT</Title>
 
 
         </Header>
         <ScrollView>
 
           <TouchableOpacity  >
-            <Content style={{ marginLeft: 3, marginRight: 3 }}>
-              <Card style={{ flex: 1 }}>
-                <CardItem
+            <Content style={{ marginLeft: 3, marginRight: 3,borderRadius:15 }}>
+              <Card style={{ flex: 1,borderRadius:15 }}>
+                <CardItem style={{borderRadius:15}}
                 >
                   <Left>
                     <Avatar
@@ -209,7 +210,7 @@ export default class NewPay extends React.Component {
                     />
                     <Body style={{ paddingLeft: 25 }}>
                       <Text style={{ fontSize: 18 }}>Pankaj Kundu</Text>
-                      <Text note>Student</Text>
+                      <Text note>pankajkundu9@gmail.com</Text>
 
 
                     </Body>
@@ -220,20 +221,20 @@ export default class NewPay extends React.Component {
             </Content>
           </TouchableOpacity>
 
-          <Content style={{ marginLeft: 3, marginRight: 3 }}>
-            <Card style={{ flex: 1 }}>
-              <CardItem>
+          <Content style={{ marginLeft: 5, marginRight: 5 ,borderRadius:15}}>
+            <Card style={{ flex: 1,borderRadius:15 }}>
+              <CardItem style={{borderRadius:15,borderBottomColor:'#f2f2f2',borderBottomWidth:2}}>
                 <Left>
                   <Icon name="plus" size={30}
 
                   />
                   <Body>
-                    <Text style={{ color: 'red' }}>New Expenditure Details</Text>
+                    <Text style={{ color: '#cc3300' }}>New Expenditure Details</Text>
 
                   </Body>
                 </Left>
               </CardItem>
-              <CardItem style={{ width: '100%', alignSelf: 'center' }}>
+              <CardItem style={{ width: '100%', alignSelf: 'center',borderRadius:15 }}>
 
                 <Body style={{ width: '100%', alignSelf: 'center', margin: -12 }}>
                   <Form style={{ width: '100%', alignSelf: 'center' }}>
@@ -257,7 +258,7 @@ export default class NewPay extends React.Component {
 
 
                     </CardItem>
-                    <CardItem>
+                    <CardItem >
 
                       <Label style={{ marginRight: '10%' }}>Quantity:</Label>
                       <TouchableOpacity
@@ -325,7 +326,7 @@ export default class NewPay extends React.Component {
 
 
                     </CardItem>
-                    <CardItem>
+                    <CardItem >
 
                       <Label style={{ marginRight: '10%' }}>Total:</Label>
 
@@ -342,8 +343,8 @@ export default class NewPay extends React.Component {
                     </CardItem>
 
 
-                    <CardItem style={{ alignSelf: 'center' }}>
-                      <Button rounded danger onPress={() => this.formsubmitpay()}>
+                    <CardItem style={{ alignSelf: 'center' ,borderRadius:15}}>
+                      <Button rounded danger  onPress={() => this.formsubmitpay()}>
                         <Text style={{ padding: 20 }}>Add Payment</Text>
                       </Button>
 
@@ -359,9 +360,9 @@ export default class NewPay extends React.Component {
             </Card>
           </Content>
 
-          <Content style={{ marginLeft: 3, marginRight: 3 }}>
-            <Card style={{ flex: 1 }}>
-              <CardItem>
+          <Content style={{ marginLeft: 5, marginRight: 5,borderRadius:15 }}>
+            <Card style={{ flex: 1 ,borderRadius:15}}>
+              <CardItem style={{borderRadius:15,borderBottomColor:'#f2f2f2',borderBottomWidth:2}}>
                 <Left>
                   <Icon name="plus" size={30} color=""
 
@@ -372,7 +373,7 @@ export default class NewPay extends React.Component {
                   </Body>
                 </Left>
               </CardItem>
-              <CardItem style={{ width: '100%', alignSelf: 'center' }}>
+              <CardItem style={{ width: '100%', alignSelf: 'center',borderRadius:15 }}>
 
                 <Body >
                   <Form style={{ width: '100%', alignSelf: 'center' }}>

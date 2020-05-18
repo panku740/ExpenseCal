@@ -3,6 +3,8 @@ import History from "./History";
 import NewPay from "./New";
 import Setting from "./Setting";
 import Saving from "./Saving";
+import Register from "./Register";
+import Login from "./Login";
 import { DrawerNavigator } from "react-navigation";
 import { StackNavigator, } from 'react-navigation';
 import { createStackNavigator } from "@react-navigation/stack";
@@ -11,74 +13,59 @@ import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //const Stack = createStackNavigator();
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
+import LoginIn from './Login'
 
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+export default function App(){
+var c=0;
 
-export default function App() {
+if(c==0){
+
+
+  return(
+    <Login/>
+    
+  );
+
+}
+else{
+
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={({ route }) => ({
-          Icon: ({ focused, color, size }) => {
-           
-
-            if (route.name === 'New') {
-            color='red'
-                
-              
-            } else if (route.name === 'Settings') {
-              return (
-                <Icon
-                  name={focused ? 'plus' : 'plus'}
-                  size={20}
-                  color='tomato'
-                />
-              );
-            }else if (route.name === 'History') {
-              return (
-                <Icon
-                  name={focused ? 'plus' : 'plus'}
-                  size={20}
-                  color='tomato'
-                />
-              );
-            }else if (route.name === 'Savings') {
-              return (
-                <Icon
-                  name={focused ? 'plus' : 'plus'}
-                  size={20}
-                  color='tomato'
-                />
-              );
-            }
-
-            // You can return any component that you like here!
-           // return <Icon name='plus' size={size} color={color} />;
-          },
-        })}
+      <Tab.Navigator 
+      
         tabBarOptions={{
+          style:{size:20},
           activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
+          inactiveTintColor: 'black',
+          activeBackgroundColor:'#d9d9d9',
+          
         }}>
         <Tab.Screen name="New" component={NewPay}  options={{
         
-          tabBarIcon: () => <Icon name='plus' size={20} color={'gray'} />,
-        }}/>
+          tabBarIcon: () => <Icon name='plus' size={20} color={'black'}  />,
+        }}/> 
+          
+          
+          
+        
         <Tab.Screen name="History" component={History} options={{
         
-        tabBarIcon: () => <Icon name='history' size={20} color={'grey'} />,
+        tabBarIcon: () => <Icon name='history' size={20} color={'black'} />,
       }}/>
         <Tab.Screen name="Savings" component={Saving} options={{
         
-        tabBarIcon: () => <Icon name='piggy-bank' size={20} color={'grey'} />,
+        tabBarIcon: () => <Icon name='piggy-bank' size={20} color={'black'} />,
       }}/>
         <Tab.Screen name="Settings" component={Setting}options={{
         
-        tabBarIcon: () => <Icon name='cog' size={20} color={'grey'} />,
+        tabBarIcon: () => <Icon name='cog' size={20} color={'black'} />,
       }}/>
         
       </Tab.Navigator>
+      
     </NavigationContainer>
   );
-}
+}}
