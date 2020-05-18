@@ -71,7 +71,7 @@ export default class Register extends React.Component {
               <Text style={{ fontWeight: 'bold', fontSize: 20}}>New User</Text>
             </View>
             <Item rounded style={{ paddingLeft: 20, backgroundColor: '#e6e6e6', marginTop: 20 }}>
-               size={18} />
+            <Icon active name='user-alt' size={18} />
               <Input placeholder='    Name' />
             </Item>
             <Item rounded style={{ paddingLeft: 20, backgroundColor: '#e6e6e6', marginTop: 20 }}>
